@@ -9,7 +9,7 @@
 #include "string"
 using namespace std;
 
-//Incluimos los archivos .h
+//Incluimos los archivos
 #include "toLetters.h"
 #include "Node.h"
 #include "NodeAdyacente.h"
