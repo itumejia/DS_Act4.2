@@ -6,5 +6,4 @@ struct Node{
     struct Node* next; //Pointer a siguiente nodo de la lista principal
     bool estado; //estado de cada nodo
     int padres; //número de padres que tiene cada nodo
-    bool agregado; //define si el nodo se ha agregado a un vector
 };
