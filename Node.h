@@ -4,4 +4,5 @@ struct Node{
     int nId; //ID numérico
     struct NodeAdyacente* adyacente; //Pointer a la lista de nodos adyacentes
     struct Node* next; //Pointer a siguiente nodo de la lista principal
+    bool estado; //estado de cada nodo
 };
