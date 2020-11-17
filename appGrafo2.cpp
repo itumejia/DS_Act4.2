@@ -15,11 +15,17 @@ using namespace std;
 #include "NodeAdyacente.h"
 #include "loadGraph.h"
 #include "printList.h"
+//#include "isTree.h"
 
 
 
 int main(){
+	//bool tree;
+	int nNodos,nArcos;
+    cin>>nNodos;
+    cin>>nArcos;
 
-    struct Node* head=loadGraph();
+    struct Node* head=loadGraph(nNodos, nArcos);
+    //tree=isTree(head, );
     return 0;
 }
