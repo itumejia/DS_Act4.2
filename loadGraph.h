@@ -25,6 +25,7 @@ struct Node* loadGraph(int nNodos, int nArcos){
         nuevo->id=toLetters(i+1); //Se utiliza to letters para obtener indice alfabético
         nuevo->nId=i;
         nuevo->adyacente=NULL;
+        nuevo->estado=0;
         //Se agrega a la lista
         actual->next=nuevo;
         actual=actual->next;
@@ -42,6 +43,7 @@ struct Node* loadGraph(int nNodos, int nArcos){
         struct NodeAdyacente* nuevo=new NodeAdyacente;
         nuevo->realNode=findRealNode(head,arc2);
         nuevo->next=NULL;
+        nuevo->realNode->estado=0;
         while(actual!=NULL){
             if(actual->id==arc1){
                 if(actual->adyacente==NULL){  
