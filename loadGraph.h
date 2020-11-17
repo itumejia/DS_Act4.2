@@ -26,6 +26,7 @@ struct Node* loadGraph(int nNodos, int nArcos){
         nuevo->nId=i;
         nuevo->adyacente=NULL;
         nuevo->estado=0;
+        nuevo->padres=0;
         //Se agrega a la lista
         actual->next=nuevo;
         actual=actual->next;
@@ -44,6 +45,7 @@ struct Node* loadGraph(int nNodos, int nArcos){
         nuevo->realNode=findRealNode(head,arc2);
         nuevo->next=NULL;
         nuevo->realNode->estado=0;
+        nuevo->realNode->padres=0;
         while(actual!=NULL){
             if(actual->id==arc1){
                 if(actual->adyacente==NULL){  
