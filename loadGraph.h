@@ -11,11 +11,10 @@ struct Node* findRealNode(struct Node* head,string l){
     }
 }
 
-struct Node* loadGraph(){
+struct Node* loadGraph(int nNodos, int nArcos){
     struct Node* head=new Node;
     head->id="head";
-    int nNodos,nArcos;
-    cin>>nNodos;
+    
 
     struct Node* actual=head;//Nodo que recorrerá la lista principal
     
@@ -32,7 +31,6 @@ struct Node* loadGraph(){
     }
     actual->next=NULL;//Lista termina con NULL
 
-    cin>>nArcos;
     string arc1, arc2;
 
 
