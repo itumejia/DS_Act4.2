@@ -1,4 +1,4 @@
-//Complejidad: O(log(n))
+//Complejidad: O(n), recorre toda la lista
 //Función que verifica si el grafo es es un árbol
 bool isTree(struct Node* head, int nodos, int arcos){
 	struct Node* auxHead=head;

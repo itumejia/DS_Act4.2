@@ -1,4 +1,4 @@
-//Función auxiliar que encuentra un nodo en la lista dado su id alfabético, regresa su dirección de memoria
+//Función auxiliar que encuentra un nodo en la lista dado su id alfabético, regresa su dirección de memoria. Complejidad O(n)
 struct Node* findRealNode(struct Node* head,string l){
     //Recorre toda la lista hasta encontrar el indicado
     while(true){
@@ -11,6 +11,8 @@ struct Node* findRealNode(struct Node* head,string l){
     }
 }
 
+//Función que carga los nodos y construye lista de adyacencias
+//Complejidad O(nm), siendo n el número de nodos en la lista, y m el número de arcos que se deben generar 
 struct Node* loadGraph(int nNodos, int nArcos){
     struct Node* head=new Node;
     head->id="head";

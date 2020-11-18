@@ -16,7 +16,6 @@ using namespace std;
 #include "Node.h"
 #include "NodeAdyacente.h"
 #include "loadGraph.h"
-#include "printList.h"
 #include "isTree.h"
 #include "topologicalSort.h"
 
@@ -42,7 +41,6 @@ int main(){
 
     //Hacemos el recorrido topolofical
     topologicalSort(head, nNodos, nArcos);
-    cout<<endl;
 
     return 0;
 }

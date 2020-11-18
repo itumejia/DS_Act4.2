@@ -1,30 +1,27 @@
 //Función que devuelve un vector cuyos nodos no tengan padres
-vector <Node *> findZeros(struct Node* head, int nodos){
+queue <Node *> findZeros(struct Node* head, int nodos){
 	//Definimos al head como el primer nodo de la lista principal
 	head=head->next;
 	//Creamos el vector que regresaremos
-	vector <Node *> vectorZeros;
+	queue <Node *> vectorZeros;
 	//Recorremos la lista principal
 	for(int i=0; i<nodos; i++){
 		//Metemos al vector a los nodos que no tienen padres
 		if(head->padres==0)
-			vectorZeros.push_back(head);
+			vectorZeros.push(head);
 		head=head->next;
 	}
 	return vectorZeros;
 }
 
+//Complejidad O(n), recorre toda la lista
 //Función que ordena los nodos utilizando el algoritmo de Kahn
 void topologicalSort(struct Node* head, int nodos, int arcos){
-	vector <Node *> vecZeros;
-	queue <Node *> queueZeros;
+	if(nodos==0) return;
+	
 	struct Node* toPrint;
-
-	//Creamos vector con la función findZeros
-	vecZeros=findZeros(head, nodos);
-	//Metemos a la cola los nodos que no tienen padres
-	for(int i=0; i<vecZeros.size(); i++)
-		queueZeros.push(vecZeros[i]);
+	//Creamos cola con la función findZeros
+	queue <Node*> queueZeros=findZeros(head, nodos);
 
 	while(!queueZeros.empty()){
 		//Sacamos de la cola al primer nodo y lo imprimimos
@@ -43,4 +40,5 @@ void topologicalSort(struct Node* head, int nodos, int arcos){
 			aux=aux->next;
 		}
 	}
+	cout<<endl;
 }
