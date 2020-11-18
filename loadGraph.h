@@ -37,28 +37,49 @@ struct Node* loadGraph(int nNodos, int nArcos){
 
 
     struct NodeAdyacente* aux;
+    //El usuario ingresa los arcos
     for(int i=0; i<nArcos;i++){
         actual=head;
         cin>>arc1;
         cin>>arc2;
+        //Inicializamos el nodo adyacente
         struct NodeAdyacente* nuevo=new NodeAdyacente;
         nuevo->realNode=findRealNode(head,arc2);
         nuevo->next=NULL;
         nuevo->realNode->estado=0;
         nuevo->realNode->padres=0;
+        //Buscamos el nodo principal
         while(actual!=NULL){
             if(actual->id==arc1){
-                if(actual->adyacente==NULL){  
+                //Se agrega el nodo adyacente si es el primero de la lista
+                if(actual->adyacente==NULL){
                     actual->adyacente=nuevo;
                 }
                 else{
                     aux=actual->adyacente;
-                    while(aux->next!=NULL){
-                        aux=aux->next;
-                    }
-                    aux->next=nuevo;
-                }
 
+                    //Se inserta el nodo al inicio de la lista
+                    if((aux->realNode->id)>(nuevo->realNode->id)){
+                        nuevo->next=aux;
+                        actual->adyacente=nuevo;
+                    }
+                    else{
+                        while(aux->next!=NULL){
+                            //Buscamos en dónde se debe insertar el nodo y se inseetar en la lista
+                            if((aux->realNode->id<nuevo->realNode->id) && (aux->next->realNode->id>nuevo->realNode->id)){
+                                nuevo->next=aux->next;
+                                aux->next=nuevo;
+                                break;
+                            }
+                            aux=aux->next;
+                        }
+                        //Se inserta el nodo al final de la lista
+                        if(aux->next==NULL){
+                            aux->next=nuevo;
+                            nuevo->next=NULL;
+                        }
+                    }
+                }
                 break;
             }
             else{
@@ -66,6 +87,5 @@ struct Node* loadGraph(int nNodos, int nArcos){
             }
         }
     }
-
     return head;
 }
